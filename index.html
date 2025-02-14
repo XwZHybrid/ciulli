@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biglietto di San Valentino</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="https://www.1001fonts.com/lucy-said-ok-personal-use-font.html">
+    
+</head>
+<body>
+    <div class="card">
+        <h1>A te, il mio amore oggi e domani</h1>
+        <img src="immagini/img8.jpg" alt="Immagine di San Valentino" id="valentine-image" onclick="  var images = [
+        'immagini/img1.jpg',
+        'immagini/img2.jpg',
+        'immagini/img3.jpg',
+        'immagini/img4.jpg',
+        'immagini/img5.jpg',
+        'immagini/img6.jpg',
+        'immagini/img7.jpg',
+        'immagini/img8.jpg',
+        'immagini/img9.jpg',
+        'immagini/img10.jpg',
+        'immagini/img11.jpg',
+        'immagini/img12.jpg',
+        'immagini/img13.jpg',
+        'immagini/img14.jpg',
+        'immagini/img15.jpg'
+    ];
+  
+            var randomIndex = Math.floor(Math.random() * images.length);
+            document.getElementById('valentine-image').src = images[randomIndex];
+        ">
+        <!-- Cuori cliccabili -->
+        <div id="heart-container"></div>
+        <div id="card-content">
+            <p>In questo biglietto vorrei esprimere tutto l'amore che provo per te in modo da poterlo leggere in qualsiasi momento o magari poter esprimere qualcosa che a parole faccia a faccia non riesco. Ormai sono quasi 4 mesi che siamo insieme e sei diventata una importante parte della mia vita, presente e futura, penso sempre a quale sarà il prossimo giorno in cui ci vedremo e sarebbe bello poter avere la certezza un giorno che quel giorno sarebbe sempre "domani", averti accanto quando è il momento di dormire e avere il piacere di vederti come prima cosa al mattino. Ti amo un mondo, in un prato fiorito sei l'unico fiore di cui mi preoccuperei di curare , e veder crescere. Sai spero un giorno di poterti togliere qualsiasi dubbio su di noi, sul mio amore per te per esempio, certo che ti amo ancora, non mi metti mai il peso di dover essere l'uomo mascolino alfa sigma, certo che ti amo, conosci le mie esigenze e le prendi sempre in considerazione, certo che ti amo, il tuo sorriso vale più di quanto io possa pagarti in pranzi, certo che ti amo, non mi stanco mai del tuo amore e sei la donna più bella del mondo, il colore dei tuoi capelli è il fascio di luce dell' alba che ti illumina la stanza una domenica mattina, i tuoi occhi sono il mare cristallino su cui viene riflessa la luce del sole,il tuo naso è così carinamente mordibile
+                le che mi fa quasi dimenticare che le tue labbra sono come un caloroso abbraccio d'inverno, sei così magnifica che ogni che siamo insieme desidero di poter stare sempre con te. E se ti dovessero venire in mente cose del tipo che sei un peso per me per qualsiasi ragione, ti sbagli, sei preoccupata per i soldi che spendo? Sono più felice a spendere soldi per te che per qualsiasi altra cosa, sono più contento di offrire un pranzo a te che usare quesi soldi per 2 miei pranzi da solo, sei preoccupata che mi pesi ascoltare delle tue problematiche? beh no in realtà penso che aiuti anche me siamo tutti umani e se posso aiutarti da una prospettiva diversa, magari la potrò applicare per me stesso una prossima volta, voglio essere qualcuno con cui le parole sono leggere, qualcuno con cui confidarti e lamentarti è un sollievo piuttosto qualcosa per cui dovresti sentirti in colpa.Credo sia un po' lungo come messaggio è la prima volta che ne scrivo uno ma il mio messaggio importante è che Ti amo e il mio cuore sa che è la cosa migliore da fare per lui soprattutto sapendo di poterlo fare a pieno</p>
+        </div>
+        <audio id="background-music" loop>
+            <source src="song.mp3" type="audio/mpeg">
+            Il tuo browser non supporta l'elemento audio.
+        </audio>
+        <button id="toggle-music" style="position: absolute; top: 10px; right: 0;">▷</button>
+
+    </div>
+    
+</body>
+</html>

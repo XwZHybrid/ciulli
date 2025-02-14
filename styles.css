@@ -1,0 +1,94 @@
+/* Stili base */
+@font-face {
+    font-family:"love";
+    src: url("love.ttf") format("truetype");
+  }
+body {
+    background-image: url('11_pattern.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+    margin: 0;
+    font-family: 'Times New Roman', serif;
+}
+#toggle-music::before {
+    text-align: center;
+    display: inline-block;
+    width: 20px; /* Larghezza desiderata dell'icona */
+    height: 20px; /* Altezza desiderata dell'icona */
+  
+}
+
+.card {
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(205, 0, 0, 1);
+    text-align: center;
+    padding: 20px;
+    max-width: 300px; /* Limita la larghezza massima della card */
+    width: 100%; /* Assicura che la card occupi tutto lo spazio disponibile */
+    box-sizing: border-box;
+   
+}
+/* styles.css */
+#card-content {
+    max-height: 300px; /* Imposta un'altezza massima fissa o relativa */
+    overflow-y: auto; /* Aggiunge una barra di scorrimento verticale quando il contenuto è troppo grande */
+}
+
+h1 {
+    color: #cd0000;
+    font-family: "love";
+}
+
+img {
+    max-width: 100%; /* Limita la larghezza massima dell'immagine */
+    height: auto; /* Mantiene l'altezza proporzionale */
+    display: block; /* Rimuove il margine inferiore predefinito sui blocchi inline */
+    margin: 0 auto; /* Centra l'immagine orizzontalmente */
+}
+
+p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    font-family:cursive;
+}
+
+button {
+    background-color: #b31c1c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #8c2020;
+}
+
+audio {
+    display: none; /* Hide the audio element by default */
+}
+
+/* Cuori cliccabili */
+#heart-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.heart {
+    width: 50px;
+    height: 50px;
+    background-color: red; /* Cambia il colore secondo le tue preferenze */
+    position: absolute;
+}

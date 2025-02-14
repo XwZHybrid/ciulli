@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolletto di San Valentino</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;  /* Fonte romantica */
+        }
+
+        body {
+            background-color: #ffe5e5;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .title {
+            font-size: 3em;
+            color: #ff6b6b;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 1.6em;
+            line-height: 1.5;
+            color: #333;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            background-color: #fff;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hearts-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .heart {
+            font-size: 2em;
+            color: #ff6b6b;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .heart:hover {
+            transform: scale(1.1);
+        }
+
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: white;
+            border-radius: 50%;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .music-button {
+            font-size: 1.2em;
+            color: #333;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                margin: 10px auto;
+                padding: 15px;
+            }
+
+            .title {
+                font-size: 2.5em;
+            }
+
+            .message {
+                font-size: 1.4em;
+            }
+
+            .hearts-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">San Valentino 2024</h1>
+            <div class="heart-icon">♥︵♥</div>
+        </div>
+
+        <div class="content">
+            <p class="message">
+                Carina,ogni giorno con te è una nuova favola che scrivo nella mia vita.
+            </p>
+            <p class="quote">
+                "La vostra amicizia è il rifugio più caldo che io abbia mai trovato."
+            </p>
+
+            <div class="image-container">
+                <img src="https://via.placeholder.com/600x300" alt="Immagine di San Valentino" class="image-placeholder">
+            </div>
+
+            <div class="hearts-container">
+                <button class="heart">❤️</button>
+                <button class="heart">💖</button>
+                <button class="heart">💕</button>
+                <button class="heart">💗</button>
+                <button class="heart">💋</button>
+            </div>
+
+        </div>
+
+        <div class="music-control">
+            <button class="music-button" id="toggleMusic">🎵</button>
+        </div>
+
+        <audio id="backgroundMusic" src="your-background-music.mp3"></audio>
+    </div>
+
+    <script>
+        const audio = document.getElementById('backgroundMusic');
+        const musicButton = document.getElementById('toggleMusic');
+        let isPlaying = false;
+
+        // Messaggi che appariranno quando si cliccano i cuori
+        const messages = [
+            "Amo te per come sei",
+            "Te amo più di ogni cosa al mondo",
+            "Il mio amore è un viaggio che comincia con te",
+            "Ogni giorno con te è un regalo",
+            "La tua esistenza mi completa"
+        ];
+
+        const hearts = document.querySelectorAll('.heart');
+
+        // Gestione della musica
+        function canPlay() {
+            if (isPlaying) {
+                audio.pause();
+            }
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                audio.play();
+                audio.addEventListener('ended', canPlay);
+            } else {
+                audio.pause();
+            }
+        }
+
+        musicButton.addEventListener('click', () => {
+            canPlay();
+        });
+
+        // Ricorda la preferenza dell'utente riguardo alla musica
+        const savedPreference = localStorage.getItem('musicEnabled');
+        
+        if (savedPreference) {
+            isPlaying = JSON.parse(savedPreference);
+            if (isPlaying) {
+                audio.play();
+                audio.addEventListener('ended', canPlay);
+            } else {
+                audio.pause();
+            }
+        }
+
+        // Salva la preferenza dell'utente
+        localStorage.setItem('musicEnabled', JSON.stringify(isPlaying));
+
+        // Gestione dei cuori cliccanti
+        hearts.forEach(heart => {
+            heart.addEventListener('click', () => {
+                const index = hearts.indexOf(heart);
+                heart.textContent = messages[index];
+                
+                // Aggiungi animazione al cuore cliccato
+                heart.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    heart.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
